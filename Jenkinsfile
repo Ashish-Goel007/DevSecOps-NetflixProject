@@ -59,12 +59,12 @@ pipeline {
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image sreedhar8897/netflix:latest > trivyimage.txt" 
+                sh "trivy image ashishgoel48/netflix:latest > trivyimage.txt" 
             }
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d -p 8081:80 sreedhar8897/netflix:latest'
+                sh 'docker run -d -p 8081:80 ashishgoel48/netflix:latest'
             }
         }
     }
