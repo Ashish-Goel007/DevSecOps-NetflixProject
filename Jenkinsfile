@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/N4si/DevSecOps-Project.git'
+                git branch: 'main', url: 'https://github.com/Ashish-Goel007/DevSecOps-NetflixProject.git'
             }
         }
         stage("Sonarqube Analysis") {
@@ -29,7 +29,7 @@ pipeline {
         stage("quality gate") {
             steps {
                 script {
-                    waitForQualityGate abortPipeline: false, credentialsId: 'Sonar-token'
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-api'
                 }
             }
         }
